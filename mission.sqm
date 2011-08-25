@@ -1,0 +1,434 @@
+version=11;
+class Mission
+{
+	addOns[]=
+	{
+		"cacharacters2",
+		"CAWheeled2_LAV25",
+		"CACharacters_W_BAF",
+		"warfarebuildings",
+		"utes",
+		"camisc_e_wf",
+		"CATracked",
+		"CATracked_E",
+		"CAWheeled",
+		"cawheeled_e_brdm2",
+		"CAWheeled2_BTR90",
+		"CAWheeled_E_stryker"
+	};
+	addOnsAuto[]=
+	{
+		"cacharacters2",
+		"CACharacters_W_BAF",
+		"CAWheeled2_LAV25",
+		"CATracked",
+		"CATracked_E",
+		"CAWheeled",
+		"cawheeled_e_brdm2",
+		"CAWheeled2_BTR90",
+		"camisc_e_wf",
+		"warfarebuildings",
+		"CAWheeled_E_stryker",
+		"utes"
+	};
+	randomSeed=15318974;
+	class Intel
+	{
+		briefingName="FOB Spawn v1.1";
+		briefingDescription="by WobbleyHeadedBob";
+		startWeather=0.10000002;
+		forecastWeather=0.30000001;
+		year=2010;
+		month=8;
+		day=7;
+		hour=9;
+		minute=0;
+	};
+	class Groups
+	{
+		items=2;
+		class Item0
+		{
+			side="WEST";
+			class Vehicles
+			{
+				items=1;
+				class Item0
+				{
+					position[]={3312.6338,19,3602.532};
+					id=1;
+					side="WEST";
+					vehicle="FR_Sapper";
+					player="PLAYER COMMANDER";
+					leader=1;
+					skill=0.2;
+					text="s1";
+				};
+			};
+		};
+		class Item1
+		{
+			side="WEST";
+			class Vehicles
+			{
+				items=1;
+				class Item0
+				{
+					position[]={3382.6741,18.943998,3574.4001};
+					id=2;
+					side="WEST";
+					vehicle="BAF_Soldier_Officer_W";
+					player="PLAY CDG";
+					leader=1;
+					skill=0.60000002;
+					text="s2";
+				};
+			};
+		};
+	};
+	class Vehicles
+	{
+		items=23;
+		class Item0
+		{
+			position[]={3317.1011,19,3621.7056};
+			id=0;
+			side="EMPTY";
+			vehicle="LAV25_HQ";
+			skill=0.2;
+			text="HQ1";
+			init="0 = [this, 10, 9999999, 0, FALSE, FALSE, ""[this] execVM 'support\scripts\respawnMHQ.sqf'""]  execVM ""support\scripts\vehicle.sqf""";
+		};
+		class Item1
+		{
+			position[]={3212.0254,13.117399,3618.6233};
+			id=3;
+			side="EMPTY";
+			vehicle="BMP2_HQ_CDF";
+			skill=0.60000002;
+		};
+		class Item2
+		{
+			position[]={3827.5542,19,3621.0049};
+			id=4;
+			side="EMPTY";
+			vehicle="BMP2_HQ_INS";
+			skill=0.60000002;
+		};
+		class Item3
+		{
+			position[]={3438.0225,19.08073,3697.1243};
+			azimut=155;
+			id=5;
+			side="EMPTY";
+			vehicle="LAV25_HQ";
+			skill=0.60000002;
+		};
+		class Item4
+		{
+			position[]={3425.9023,19.08073,3691.219};
+			azimut=155;
+			id=6;
+			side="EMPTY";
+			vehicle="LAV25_HQ";
+			skill=0.60000002;
+		};
+		class Item5
+		{
+			position[]={3758.3215,19.060549,3518.2524};
+			azimut=50;
+			id=7;
+			side="EMPTY";
+			vehicle="LAV25_HQ";
+			skill=0.60000002;
+		};
+		class Item6
+		{
+			position[]={3764.1658,19.060549,3512.0618};
+			azimut=50;
+			id=8;
+			side="EMPTY";
+			vehicle="LAV25_HQ";
+			skill=0.60000002;
+		};
+		class Item7
+		{
+			position[]={4007.3855,19,3621.927};
+			id=9;
+			side="EMPTY";
+			vehicle="BMP2_HQ_TK_EP1";
+			skill=0.60000002;
+		};
+		class Item8
+		{
+			position[]={3838.3843,19,3621.3171};
+			id=10;
+			side="EMPTY";
+			vehicle="BRDM2_HQ_Gue";
+			skill=0.60000002;
+		};
+		class Item9
+		{
+			position[]={3973.592,18.976587,3512.3408};
+			id=11;
+			side="EMPTY";
+			vehicle="BRDM2_HQ_TK_GUE_EP1";
+			skill=0.60000002;
+		};
+		class Item10
+		{
+			position[]={3636.4065,19,3620.6665};
+			id=12;
+			side="EMPTY";
+			vehicle="BTR90_HQ";
+			skill=0.60000002;
+		};
+		class Item11
+		{
+			position[]={3853.7915,19,3620.1821};
+			id=13;
+			side="EMPTY";
+			vehicle="BRDM2_HQ_TK_GUE_unfolded_Base_EP1";
+			skill=0.60000002;
+		};
+		class Item12
+		{
+			position[]={4024.4846,19,3621.8298};
+			id=14;
+			side="EMPTY";
+			vehicle="BMP2_HQ_TK_unfolded_Base_EP1";
+			skill=0.60000002;
+		};
+		class Item13
+		{
+			position[]={3334.6577,19,3620.0911};
+			id=15;
+			side="EMPTY";
+			vehicle="M1130_HQ_unfolded_Base_EP1";
+			skill=0.60000002;
+		};
+		class Item14
+		{
+			position[]={4044.1909,19,3622.3757};
+			id=16;
+			side="EMPTY";
+			vehicle="BMP2_HQ_TK_unfolded_EP1";
+			skill=0.60000002;
+		};
+		class Item15
+		{
+			position[]={3988.0422,18.974577,3512.542};
+			id=17;
+			side="EMPTY";
+			vehicle="BRDM2_HQ_TK_GUE_unfolded_EP1";
+			skill=0.60000002;
+		};
+		class Item16
+		{
+			position[]={3352.708,19,3620.1084};
+			id=18;
+			side="EMPTY";
+			vehicle="M1130_HQ_unfolded_EP1";
+			skill=0.60000002;
+		};
+		class Item17
+		{
+			position[]={3235.7385,14.237061,3620.4119};
+			id=19;
+			side="EMPTY";
+			vehicle="BMP2_HQ_CDF_unfolded";
+			skill=0.60000002;
+		};
+		class Item18
+		{
+			position[]={3651.4194,19,3620.1858};
+			id=20;
+			side="EMPTY";
+			vehicle="BTR90_HQ_unfolded";
+			skill=0.60000002;
+		};
+		class Item19
+		{
+			position[]={3870.6121,19,3620.0193};
+			id=21;
+			side="EMPTY";
+			vehicle="BRDM2_HQ_Gue_unfolded";
+			skill=0.60000002;
+		};
+		class Item20
+		{
+			position[]={3814.4111,19,3620.1401};
+			id=22;
+			side="EMPTY";
+			vehicle="BMP2_HQ_INS_unfolded";
+			skill=0.60000002;
+		};
+		class Item21
+		{
+			position[]={3372.1956,19,3620.145};
+			id=23;
+			side="EMPTY";
+			vehicle="LAV25_HQ_unfolded";
+			skill=0.60000002;
+		};
+		class Item22
+		{
+			position[]={3390.6301,19,3620.6567};
+			id=24;
+			side="EMPTY";
+			vehicle="M1130_CV_EP1";
+			skill=0.60000002;
+		};
+	};
+	class Markers
+	{
+		items=8;
+		class Item0
+		{
+			position[]={1362.5365,15.885103,1031.5551};
+			name="respawn_west";
+			type="Empty";
+		};
+		class Item1
+		{
+			position[]={3324.7944,19,3601.2412};
+			name="respawn_USMC";
+			text="USMC Spawn";
+			type="Faction_US";
+			a=1.5;
+		};
+		class Item2
+		{
+			position[]={3389.7151,18.921425,3572.1431};
+			name="respawn_BAF";
+			text="BAF Spawn";
+			type="Faction_BritishArmedForces_BAF";
+			a=1.5;
+		};
+		class Item3
+		{
+			position[]={3641.5691,19,3600.8396};
+			name="respawn_RU";
+			text="Russian Spawn";
+			type="Faction_RU";
+			a=1.5;
+		};
+		class Item4
+		{
+			position[]={3833.7424,19,3601.103};
+			name="respawn_GUE";
+			text="Cher Guerilla Spawn";
+			type="Faction_CDF";
+			a=1.5;
+		};
+		class Item5
+		{
+			position[]={4011.4058,19,3601.2539};
+			name="respawn_TK";
+			text="Takistan Army Spawn";
+			type="Faction_TKA_EP1";
+			a=1.5;
+		};
+		class Item6
+		{
+			position[]={3980.9587,19.055431,3488.614};
+			name="respawn_TK_GUE";
+			text="Takistan Guerilla Spawn";
+			type="Faction_TKM_EP1";
+			a=1.5;
+		};
+		class Item7
+		{
+			position[]={3215.9988,11.985856,3601.7639};
+			name="respawn_CDF";
+			text="CDF Spawn";
+			type="Faction_INS";
+			a=1.5;
+		};
+	};
+	class Sensors
+	{
+		items=1;
+		class Item0
+		{
+			position[]={3139.6057,20.196121,3682.843};
+			a=0;
+			b=0;
+			activationBy="ALPHA";
+			repeating=1;
+			interruptable=1;
+			age="UNKNOWN";
+			text="Display HQ Array";
+			expActiv="0 = [] execVM ""debug_displayHQArray.sqf"";";
+			class Effects
+			{
+			};
+		};
+	};
+};
+class Intro
+{
+	addOns[]=
+	{
+		"utes"
+	};
+	addOnsAuto[]=
+	{
+		"utes"
+	};
+	randomSeed=4804118;
+	class Intel
+	{
+		startWeather=0.1;
+		forecastWeather=0.30000001;
+		year=2010;
+		month=8;
+		day=7;
+		hour=9;
+		minute=0;
+	};
+};
+class OutroWin
+{
+	addOns[]=
+	{
+		"utes"
+	};
+	addOnsAuto[]=
+	{
+		"utes"
+	};
+	randomSeed=8876320;
+	class Intel
+	{
+		startWeather=0.1;
+		forecastWeather=0.30000001;
+		year=2010;
+		month=8;
+		day=7;
+		hour=9;
+		minute=0;
+	};
+};
+class OutroLoose
+{
+	addOns[]=
+	{
+		"utes"
+	};
+	addOnsAuto[]=
+	{
+		"utes"
+	};
+	randomSeed=7794049;
+	class Intel
+	{
+		startWeather=0.1;
+		forecastWeather=0.30000001;
+		year=2010;
+		month=8;
+		day=7;
+		hour=9;
+		minute=0;
+	};
+};
