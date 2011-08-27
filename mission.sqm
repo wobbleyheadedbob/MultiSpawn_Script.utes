@@ -190,6 +190,7 @@ class Mission
 			side="EMPTY";
 			vehicle="BRDM2_HQ_TK_GUE_unfolded_Base_EP1";
 			skill=0.60000002;
+			init="0 = [this] execVM ""support\modules\whb_fobspawn\fn_addAction_HQ.sqf""";
 		};
 		class Item12
 		{
@@ -198,6 +199,7 @@ class Mission
 			side="EMPTY";
 			vehicle="BMP2_HQ_TK_unfolded_Base_EP1";
 			skill=0.60000002;
+			init="0 = [this] execVM ""support\modules\whb_fobspawn\fn_addAction_HQ.sqf""";
 		};
 		class Item13
 		{
@@ -206,6 +208,7 @@ class Mission
 			side="EMPTY";
 			vehicle="M1130_HQ_unfolded_Base_EP1";
 			skill=0.60000002;
+			init="0 = [this] execVM ""support\modules\whb_fobspawn\fn_addAction_HQ.sqf""";
 		};
 		class Item14
 		{
@@ -214,6 +217,7 @@ class Mission
 			side="EMPTY";
 			vehicle="BMP2_HQ_TK_unfolded_EP1";
 			skill=0.60000002;
+			init="0 = [this] execVM ""support\modules\whb_fobspawn\fn_addAction_HQ.sqf""";
 		};
 		class Item15
 		{
@@ -222,6 +226,7 @@ class Mission
 			side="EMPTY";
 			vehicle="BRDM2_HQ_TK_GUE_unfolded_EP1";
 			skill=0.60000002;
+			init="0 = [this] execVM ""support\modules\whb_fobspawn\fn_addAction_HQ.sqf""";
 		};
 		class Item16
 		{
@@ -230,6 +235,7 @@ class Mission
 			side="EMPTY";
 			vehicle="M1130_HQ_unfolded_EP1";
 			skill=0.60000002;
+			init="0 = [this] execVM ""support\modules\whb_fobspawn\fn_addAction_HQ.sqf""";
 		};
 		class Item17
 		{
@@ -238,6 +244,7 @@ class Mission
 			side="EMPTY";
 			vehicle="BMP2_HQ_CDF_unfolded";
 			skill=0.60000002;
+			init="0 = [this] execVM ""support\modules\whb_fobspawn\fn_addAction_HQ.sqf""";
 		};
 		class Item18
 		{
@@ -246,6 +253,7 @@ class Mission
 			side="EMPTY";
 			vehicle="BTR90_HQ_unfolded";
 			skill=0.60000002;
+			init="0 = [this] execVM ""support\modules\whb_fobspawn\fn_addAction_HQ.sqf""";
 		};
 		class Item19
 		{
@@ -254,6 +262,7 @@ class Mission
 			side="EMPTY";
 			vehicle="BRDM2_HQ_Gue_unfolded";
 			skill=0.60000002;
+			init="0 = [this] execVM ""support\modules\whb_fobspawn\fn_addAction_HQ.sqf""";
 		};
 		class Item20
 		{
@@ -262,6 +271,7 @@ class Mission
 			side="EMPTY";
 			vehicle="BMP2_HQ_INS_unfolded";
 			skill=0.60000002;
+			init="0 = [this] execVM ""support\modules\whb_fobspawn\fn_addAction_HQ.sqf""";
 		};
 		class Item21
 		{
@@ -270,6 +280,7 @@ class Mission
 			side="EMPTY";
 			vehicle="LAV25_HQ_unfolded";
 			skill=0.60000002;
+			init="0 = [this] execVM ""support\modules\whb_fobspawn\fn_addAction_HQ.sqf""";
 		};
 		class Item22
 		{

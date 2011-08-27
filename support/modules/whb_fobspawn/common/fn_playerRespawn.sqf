@@ -7,7 +7,6 @@ _mySoldier = _this select 0;
 
 //Need to add a condition here in case the player isn't using CBA???
 _mySoldier setPos ([myRespawnPoint, 10] call CBA_fnc_randPos);
-//_mySoldier setDir direction (nearestObject [_mySoldier, "LandVehicle"]);
 
 //Usage: Add this to a  trigger at the respawn_west
 //Condition: (vehicle player) in thislist 

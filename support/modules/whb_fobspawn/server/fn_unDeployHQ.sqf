@@ -51,9 +51,10 @@ _fobHQ removeAction 1;
 	};
 	
 
-	// 0 - Reset (All done now tell the clients to reset their state listeners)
+	/* 0 - Reset (All done now tell the clients to reset their state listeners)
 	sleep 1;
 	PV_Client_SyncHQState = [0, ""];
 	PV_Server_SyncHQState = [0, ""];
 	publicvariable "PV_Client_SyncHQState";
+	*/
 };
