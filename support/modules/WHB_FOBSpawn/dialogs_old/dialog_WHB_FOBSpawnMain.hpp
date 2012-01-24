@@ -1,10 +1,14 @@
-#include ""support\modules\whb_fobspawn\dialog\dialog_constants.hpp"
-class WHB_fobspawn_mainMenu { // by Wobbleyheadedbob
+#include <dialog_constants.hpp>
+
+class WHB_FOBSpawn_mainMenu { // by Wobbleyheadedbob
 //A sample Dialog from a dialog tutorial
 	idd = -1;
 	movingEnable = false;
 	controlsBackground[] = {};
-	controls[] = {"ButtonControl"};
+	controls[] = {
+		"ButtonControl",
+		"HintButton"
+	};
 	objects[] = {};
   
 	class ButtonControl {
@@ -20,7 +24,7 @@ class WHB_fobspawn_mainMenu { // by Wobbleyheadedbob
 		font = "Zeppelin32";
 		sizeEx = 0.025;
 		// action uses script commands to close dialog and display a hint
-		action = "closeDialog 0; hint ""Close pushed"";"
+		action = "closeDialog 0; hint ""Close pushed"";";
 		text = "Close";
 		default = false;
 		colorText[] = {1,0,0,1}; // white
