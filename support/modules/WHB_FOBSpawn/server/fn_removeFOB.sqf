@@ -1,0 +1,32 @@
+//needs to be done Server-side just in case the client machine disconnects or crashes during the parameter defined delay
+private ["_fobHQ","_mhq","_mhqType","_locationHQ","_vectorHQ"];
+_fobHQ = _this select 0;
+_locationHQ = position _fobHQ;
+_vectorHQ = vectorUp _fobHQ;
+_mhqType = [_fobHQ] call fn_getMHQType;
+
+//Wait a while...
+sleep undeployment_Time;
+
+//Delete the FOBHQ and Remove from the list of active HQs
+PV_hqArray = PV_hqArray - [_fobHQ];	//Remove FOB from the list of active HQs
+deleteVehicle _fobHQ;
+
+//Create new MHQ
+_mhq = createVehicle [_mhqType, [0,0,0], [], 0, "NONE"];
+_mhq setDir direction _fobHQ;
+_mhq setVectorUp _vectorHQ;
+_mhq setPos _locationHQ;
+_mhq setVariable ["MHQState", 0, true];
+
+//Add the new MHQ to the list of active HQ's and broadcast the PV
+PV_hqArray set [count PV_hqArray, _mhq];
+publicvariable "PV_hqArray";
+
+if !isDedicated then 
+{
+	[0, _mhq] call fn_client_syncHQState;
+};
+
+PV_client_syncHQState = [1, ""];
+publicVariable "PV_client_syncHQState";

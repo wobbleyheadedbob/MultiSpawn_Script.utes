@@ -1,55 +1,39 @@
-// Script used by the Client to trigger events based on the puclicVariableEventHandler (PV_Client_SyncHQState)
-// The server updates and broadcasts the 'hqState'
-// the Client listens and performs the necessary actions on the 'hqObject'
 // Author: WobbleyheadedBob aka CptNoPants
 
-private ["_hqState","_hqObject"];
-_hqState = _this select 0;
-_hqObject = _this select 1;
+private ["_mhqState","_mhqObject"];
+_mhqState = _this select 0;
+_mhqObject = _this select 1;
 
-// Event No. 0 - Reset
-// Event No. 1 - Start Deployment
-// Event No. 2- Finnished Deployment
-// Event No. 3 - Pack up
-// Event No. 4 - finnished packup
-
-switch (_hqState) do
+switch (_mhqState) do
 {
-//-------------------------------------------------------------------------------------------------
-	case 0: //Reset
+	case 0: // State No. 0 - Mobile/Undeployed
 	{
-		//Do nothing, we're just resetting the state so it can listen for more events
-		//Actually... don't think I need this :P
+		PV_client_syncHQState = [99, ""];
+		[_mhqObject] call fn_addAction_HQ;
+		player sideChat format ["FOB HQ has now been packed up..."];
 	};
-//-------------------------------------------------------------------------------------------------
-	case 1: //Start Deployment
+	//-------------------------------------------------------------------------------------------------
+	case 1: // State No. 1 - Deployed
 	{
-		player sideChat format ["Setting up FOB HQ now..."];
-		_hqObject removeAction 0;
-		_hqObject setFuel 0;
+		//PV_client_syncHQState = [99, ""];
+		[_mhqObject] call fn_addAction_HQ;
+		player sideChat format ["FOB has been deployed."];
 	};
-//-------------------------------------------------------------------------------------------------
-	case 2: //Finnished Deployment
+	//-------------------------------------------------------------------------------------------------
+	case 2: // State No. 2 - Deploying
 	{
-		player sideChat format ["FOB HQ has been setup."];
-		[_hqObject] call fn_addAction_HQ;
+		PV_client_syncHQState = [99, ""];
+		player sideChat format ["Someone is deploying up an FOB..."];
 	};
-//-------------------------------------------------------------------------------------------------
-	case 3: //Pack up
+	//-------------------------------------------------------------------------------------------------
+	case 3: // State No. 3 - Undeploying/Packing up
 	{
-		player sideChat format ["Packing up FOB HQ now..."];
-		_hqObject removeAction 0;
-		_hqObject removeAction 1;
+		PV_client_syncHQState = [99, ""];
+		player sideChat format ["Someone is packing up an FOB..."];
 	};
-//-------------------------------------------------------------------------------------------------
-	case 4: //Finnished Pack up
-	{
-		player sideChat format ["FOB HQ has now been packed up."];
-		[_hqObject] call fn_addAction_HQ;
-	};
-//-------------------------------------------------------------------------------------------------
+	//-------------------------------------------------------------------------------------------------
 	Default 
 	{
-		//Do nothing but... wtf state did you enter???
+		PV_client_syncHQState = [99, ""];
 	};
 };

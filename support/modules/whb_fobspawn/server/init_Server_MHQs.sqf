@@ -1,8 +1,14 @@
 // Script used by the Server to build an array of all available MHQs
+// State variable is also initialised as they are added to the list.
 // Static HQ buildings will need the relevant actions manually added in the editor
 // Author: WobbleyheadedBob aka CptNoPants
 
-private ["_vehicles","_array1","_array2"];
+// State No. 0 - Mobile/Undeployed
+// State No. 1 - Deployed
+// State No. 2 - Deploying
+// State No. 3 - Undeploying/Packing up
+
+private ["_vehicles"];
 _vehicles = _this select 0;
 PV_hqArray = [];
 
@@ -12,61 +18,52 @@ PV_hqArray = [];
 		//BLUFOR
 		case "LAV25_HQ":
 		{
-			_array1 = PV_hqArray;
-			_array2 = [_x];
-			PV_hqArray = _array1 + _array2;
+			_x setVariable ["MHQState", 0, true];
+			PV_hqArray set [count PV_hqArray, _x];
 		};
 		case "BMP2_HQ_CDF":
 		{
-			_array1 = PV_hqArray;
-			_array2 = [_x];
-			PV_hqArray = _array1 + _array2;
+			_x setVariable ["MHQState", 0, true];
+			PV_hqArray set [count PV_hqArray, _x];
 		};
 		case "M1130_CV_EP1":
 		{
-			_array1 = PV_hqArray;
-			_array2 = [_x];
-			PV_hqArray = _array1 + _array2;
+			_x setVariable ["MHQState", 0, true];
+			PV_hqArray set [count PV_hqArray, _x];
 		};
 		
 		//OPFOR
 		case "BTR90_HQ":
 		{
-			_array1 = PV_hqArray;
-			_array2 = [_x];
-			PV_hqArray = _array1 + _array2;
+			_x setVariable ["MHQState", 0, true];
+			PV_hqArray set [count PV_hqArray, _x];
 		};
 		case "BMP2_HQ_INS":
 		{
-			_array1 = PV_hqArray;
-			_array2 = [_x];
-			PV_hqArray = _array1 + _array2;
+			_x setVariable ["MHQState", 0, true];
+			PV_hqArray set [count PV_hqArray, _x];
 		};
 		case "BMP2_HQ_TK_EP1":
 		{
-			_array1 = PV_hqArray;
-			_array2 = [_x];
-			PV_hqArray = _array1 + _array2;
+			_x setVariable ["MHQState", 0, true];
+			PV_hqArray set [count PV_hqArray, _x];
 		};
 		
 		//Independent
 		case "BRDM2_HQ_Gue":
 		{
-			_array1 = PV_hqArray;
-			_array2 = [_x];
-			PV_hqArray = _array1 + _array2;
+			_x setVariable ["MHQState", 0, true];
+			PV_hqArray set [count PV_hqArray, _x];
 		};
 		case "BRDM2_HQ_TK_GUE_EP1":
 		{
-			_array1 = PV_hqArray;
-			_array2 = [_x];
-			PV_hqArray = _array1 + _array2;
+			_x setVariable ["MHQState", 0, true];
+			PV_hqArray set [count PV_hqArray, _x];
 		};
 		case "BRDM2_HQ_TK_GUE": //Is this valid?
 		{
-			_array1 = PV_hqArray;
-			_array2 = [_x];
-			PV_hqArray = _array1 + _array2;
+			_x setVariable ["MHQState", 0, true];
+			PV_hqArray set [count PV_hqArray, _x];
 		};
 	//-------------------------------------------------------------------------------------------------
 		Default 
@@ -74,31 +71,7 @@ PV_hqArray = [];
 			//Do nothing for all other vehicles
 		};
 	};
-	//Broadcast the new list out to everyone.
-	publicvariable "PV_hqArray";
 } forEach _vehicles;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+//Broadcast the new list out to everyone.
+publicvariable "PV_hqArray";

@@ -4,64 +4,65 @@
 // Server
 if isServer then {
 	private ["_initMHQs","_hqObject"];
-	if (isNil "PV_Server_SyncHQState") then {
+	if (isNil "PV_server_syncHQState") then {
 		// set the nil variable with a default value for server and both JIP & 'join at mission start' 
-		PV_Server_SyncHQState = [0, ""]; 
+		PV_server_syncHQState = [99, ""]; 
 	};
-	publicvariable "PV_Server_SyncHQState";
+	publicvariable "PV_server_syncHQState";
 	
-	//Builds the initial array of all MHQ Vehicles placed in the editor
-	_initMHQs = [vehicles] call compile preprocessFile "support\modules\whb_fobspawn\server\init_Server_MHQs.sqf";
+	// Builds the initial array of all MHQ Vehicles placed in the editor
+	_initMHQs = [vehicles] call compile preprocessFile "support\modules\WHB_FOBSpawn\server\init_server_MHQs.sqf";
 	
-	// Functions the the Server calls to Deploy/Pack up the HQ's
-	fn_DeployHQ = compile preprocessFileLineNumbers "support\modules\whb_fobspawn\server\fn_DeployHQ.sqf";
-	fn_unDeployHQ = compile preprocessFileLineNumbers "support\modules\whb_fobspawn\server\fn_unDeployHQ.sqf";
+	// PV message system for Client-to-Server-to-Client message transmission
+	fn_server_syncHQState = compile preprocessFileLineNumbers "support\modules\WHB_FOBSpawn\server\fn_server_syncHQState.sqf";
 	
-	// Functions to determine the HQ Structure/Vehicle type based on the HQ Object supplied
-	fn_getHQType = compile preprocessFileLineNumbers "support\modules\whb_fobspawn\server\fn_getHQType.sqf";
-	fn_getMHQType = compile preprocessFileLineNumbers "support\modules\whb_fobspawn\server\fn_getMHQType.sqf";
+	// Creates/Removes the actual FOB building, 
+	fn_createFOB = compile preprocessFileLineNumbers "support\modules\WHB_FOBSpawn\server\fn_createFOB.sqf";
+	fn_removeFOB = compile preprocessFileLineNumbers "support\modules\WHB_FOBSpawn\server\fn_removeFOB.sqf";
 	
-	// Simple and slightly redundant function that determines which HQ action to call based on the 'State' sent in from a client
-	// I've done it this way as I will be adding more actions to the MHQ at a later date and this simplifies the code a little...
-	fn_Server_SyncHQState = compile preprocessFileLineNumbers "support\modules\whb_fobspawn\server\fn_Server_SyncHQState.sqf";
-	
-	//Listens for events form the client(s)
-	"PV_Server_SyncHQState" addPublicVariableEventHandler {(_this select 1) call fn_Server_SyncHQState;};
-	
-    if !isDedicated then {
-		// Apply Deploy/Undeploy/SignIn actions to all HQ objects.
-		waituntil{!isNil "PV_hqArray"};
-		[] execvm "support\modules\whb_fobspawn\common\init_Client_DefaultSpawnLocations.sqf";
-		
-		// Event Handler that calls the player relocation on respawn (For host machines)
-		player addEventhandler ["respawn", {[player] call fn_playerRespawn}];
-    };
+	// Listens for events from the client(s)
+	"PV_server_syncHQState" addPublicVariableEventHandler {(_this select 1) call fn_server_syncHQState;};
 
 // Non-server clients
 } else {
 	waituntil{!isNil "PV_hqArray"};
 
-	// Initialise the default spawn locations and Deploy/Undeploy/SignIn actions to all HQ objects.
-	[] execvm "support\modules\whb_fobspawn\common\init_Client_DefaultSpawnLocations.sqf";
-		
-	if (isNil "PV_Client_SyncHQState") then
+	if (isNil "PV_client_syncHQState") then
 	{
 	  // set the nil variable with a default value for server and both JIP & 'join at mission start' 
-	  PV_Client_SyncHQState = [0, ""]; 
+	  PV_client_syncHQState = [99, ""]; 
 	};
 	
-	// Function that gets called on Client when the Server updates the state of an HQ
-	fn_Client_SyncHQState = compile preprocessFileLineNumbers  "support\modules\whb_fobspawn\common\fn_Client_SyncHQState.sqf";
-	
 	// Event Handler to catch the message sent by the server.
-	"PV_Client_SyncHQState" addPublicVariableEventHandler {(_this select 1) call fn_Client_SyncHQState};
+	"PV_client_syncHQState" addPublicVariableEventHandler {(_this select 1) call fn_client_syncHQState};
+};
+
+//Clients and Hosting Players
+if !isDedicated then {
+	waituntil{!isNil "PV_hqArray"};
 	
-	// Event Handler that calls the player relocation on respawn (for Clients)
+	// Initialise the default spawn locations and Deploy/Undeploy/SignIn actions to all HQ objects.
+	[] execvm "support\modules\WHB_FOBSpawn\common\init_client_defaultSpawnLocations.sqf";
+	
+	// Function that gets called when the Server updates the state of an HQ
+	fn_client_syncHQState = compile preprocessFileLineNumbers  "support\modules\WHB_FOBSpawn\common\fn_client_syncHQState.sqf";
+	
+	// Event Handler that calls the player relocation on respawn
 	player addEventhandler ["respawn", {[player] call fn_playerRespawn}];
 };
 
 // All Machines
+// Functions to Deploy/Pack/Sign-in HQ's
+fn_playerSetSpawn = compile preprocessFileLineNumbers "support\modules\WHB_FOBSpawn\common\fn_playerSetSpawnpoint.sqf";
+fn_DeployHQ = compile preprocessFileLineNumbers "support\modules\WHB_FOBSpawn\common\fn_deployHQ.sqf";
+fn_undeployHQ = compile preprocessFileLineNumbers "support\modules\WHB_FOBSpawn\common\fn_undeployHQ.sqf";
+
+// Functions to determine the HQ Structure/Vehicle type based on the HQ Object supplied
+fn_getHQType = compile preprocessFileLineNumbers "support\modules\WHB_FOBSpawn\common\fn_getHQType.sqf";
+fn_getMHQType = compile preprocessFileLineNumbers "support\modules\WHB_FOBSpawn\common\fn_getMHQType.sqf";
+
+//Function to add actions to the HQ objects
+fn_addAction_HQ = compile preprocessFileLineNumbers "support\modules\WHB_FOBSpawn\common\fn_addAction_HQ.sqf";	
 
 //Function that does the actual player relocation
-fn_addAction_HQ = compile preprocessFileLineNumbers "support\modules\whb_fobspawn\fn_addAction_HQ.sqf";
-fn_playerRespawn = compile preprocessFileLineNumbers "support\modules\whb_fobspawn\common\fn_playerRespawn.sqf";
+fn_playerRespawn = compile preprocessFileLineNumbers "support\modules\WHB_FOBSpawn\common\fn_playerRespawn.sqf";

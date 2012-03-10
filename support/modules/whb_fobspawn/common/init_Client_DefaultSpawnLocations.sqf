@@ -41,11 +41,3 @@ if (str myRespawnPoint == "[0,0,0]") then {
 if (str myRespawnPoint == "[0,0,0]") then {
 	myRespawnPoint = position player;
 };
-
-//player sideChat format ["Debug : Respawn Coords: %1", myRespawnPoint]; 
-
-//Usage: Add this to a global trigger
-//Activation: None / Once / Present
-//Type: None
-//Condition: local player
-//On Act: _dummy = [] execvm "functions\common\initSpawn.sqf"

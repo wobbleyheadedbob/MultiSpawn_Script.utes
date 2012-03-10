@@ -1,16 +1,8 @@
 // Script used by the Client to trigger a change in the HQ State
-// The server listens for this event and begins the unDeploy actions
 // Author: WobbleyheadedBob aka CptNoPants
 
-// Event No. 0 - Reset
-// Event No. 1 - Deploy
-// Event No. 2- Undeploy
-private ["_hqObject"];
+private ["_hqObject","_returnMessage"];
 _hqObject = _this select 0;
 
-if isServer then {
-	[_hqObject] call fn_undeployHQ;
-} else {
-	PV_Server_SyncHQState = [2, _hqObject];
-	publicvariable "PV_Server_SyncHQState";
-};
+_returnMessage = [_hqObject] call fn_undeployHQ;
+{player sideChat _x} forEach _returnMessage;

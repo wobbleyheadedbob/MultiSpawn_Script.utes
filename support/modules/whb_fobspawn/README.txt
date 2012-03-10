@@ -1,6 +1,6 @@
 [WHB] FOB Respawn : Forward Operations Base Respawn Script
 --------------------------------------------------------------------------------------
-This script allows player to setup multiple forward bases which can be used as repawn 
+This script allows player to setup multiple forward bases which can be used as respawn 
 points. To try an break away from this just being another respawn script, this attempts 
 to make things a little harder on the player. There is no teleportation or respawn selection 
 menu, to respawn at a delpoyed FOB HQ you will first need to travel there and "Sign In".

@@ -22,7 +22,7 @@ aiKills = 0;
 briefing = 1;
 
 class Params {
-#ifdef WHB_FOBSPAWN
-	#include <support\modules\whb_fobspawn\params.hpp>
+#ifdef WHB_FOBSpawn
+	#include <support\modules\WHB_FOBSpawn\params.hpp>
 #endif
 };

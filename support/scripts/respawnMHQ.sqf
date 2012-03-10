@@ -4,6 +4,10 @@
 private ["_mhq"];
 _mhq = _this select 0;
 
-PV_hqArray = PV_hqArray + [_mhq];
+_mhq setVariable ["MHQState", 0, true];
+PV_hqArray set [count PV_hqArray, _mhq];
 publicvariable "PV_hqArray";
-[_mhq] call fn_addAction_HQ;
+
+if !isDedicated then {
+	[_mhq] call fn_addAction_HQ;
+};
