@@ -1,4 +1,4 @@
-// Script used by the Client to trigger a change in the HQ State
+// Calls fn_deployHQ method on the client machine
 // Author: WobbleyheadedBob aka CptNoPants
 
 private ["_hqObject","_returnMessage"];

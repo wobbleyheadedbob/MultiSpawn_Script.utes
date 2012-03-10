@@ -1,4 +1,5 @@
-//needs to be done Server-side just in case the client machine disconnects or crashes during the parameter defined delay
+//needs to be done Server-side just in case the client machine disconnects or crashes during the parameter defined delay.
+// Author: WobbleyheadedBob aka CptNoPants
 private ["_fobHQ","_mhq","_mhqType","_locationHQ","_vectorHQ"];
 _fobHQ = _this select 0;
 _locationHQ = position _fobHQ;
@@ -9,7 +10,7 @@ _mhqType = [_fobHQ] call fn_getMHQType;
 sleep undeployment_Time;
 
 //Delete the FOBHQ and Remove from the list of active HQs
-PV_hqArray = PV_hqArray - [_fobHQ];	//Remove FOB from the list of active HQs
+PV_hqArray = PV_hqArray - [_fobHQ];
 deleteVehicle _fobHQ;
 
 //Create new MHQ
@@ -23,10 +24,11 @@ _mhq setVariable ["MHQState", 0, true];
 PV_hqArray set [count PV_hqArray, _mhq];
 publicvariable "PV_hqArray";
 
+//Broadcast the returnMessage and fn_addAction_HQ to all other clients
+PV_client_syncHQState = [1, ""];
+publicVariable "PV_client_syncHQState";
+
 if !isDedicated then 
 {
 	[0, _mhq] call fn_client_syncHQState;
 };
-
-PV_client_syncHQState = [1, ""];
-publicVariable "PV_client_syncHQState";

@@ -2,12 +2,6 @@
 // State variable is also initialised as they are added to the list.
 // Static HQ buildings will need the relevant actions manually added in the editor
 // Author: WobbleyheadedBob aka CptNoPants
-
-// State No. 0 - Mobile/Undeployed
-// State No. 1 - Deployed
-// State No. 2 - Deploying
-// State No. 3 - Undeploying/Packing up
-
 private ["_vehicles"];
 _vehicles = _this select 0;
 PV_hqArray = [];
@@ -27,6 +21,11 @@ PV_hqArray = [];
 			PV_hqArray set [count PV_hqArray, _x];
 		};
 		case "M1130_CV_EP1":
+		{
+			_x setVariable ["MHQState", 0, true];
+			PV_hqArray set [count PV_hqArray, _x];
+		};
+		case "cwr2_M113_HQ":
 		{
 			_x setVariable ["MHQState", 0, true];
 			PV_hqArray set [count PV_hqArray, _x];
@@ -65,8 +64,8 @@ PV_hqArray = [];
 			_x setVariable ["MHQState", 0, true];
 			PV_hqArray set [count PV_hqArray, _x];
 		};
-	//-------------------------------------------------------------------------------------------------
-		Default 
+
+		Default
 		{
 			//Do nothing for all other vehicles
 		};

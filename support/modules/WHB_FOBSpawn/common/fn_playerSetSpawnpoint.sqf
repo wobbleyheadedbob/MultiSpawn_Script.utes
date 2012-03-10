@@ -1,15 +1,8 @@
 // When triggered, updates myRespawnPoint to the object's location.
-
 // Still a work in Progress:
 // This will later be modified so that it is actually tied to the object and uses NOMAD to store the player spawn.
 // another eventHandler will be setup to monitor the state of the HQ Building.
 // Author: WobbleyheadedBob aka CptNoPants
-
-// State No. 0 - Mobile/Undeployed
-// State No. 1 - Deployed
-// State No. 2 - Deploying
-// State No. 3 - Undeploying/Packing up
-
 private ["_fobHQ","_fobState","_returnMessage"];
 _fobHQ = _this select 0;
 _fobState = _fobHQ getVariable "MHQState";

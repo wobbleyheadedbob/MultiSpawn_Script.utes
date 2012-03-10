@@ -6,12 +6,6 @@ Return Value: Array of Error/Success Strings
 Description: Packs the static structure up back into a mobile vehicle.
 Author: WobbleyheadedBob aka CptNoPants
 ********************************************************************************************************/
-
-// State No. 0 - Mobile/Undeployed
-// State No. 1 - Deployed
-// State No. 2 - Deploying
-// State No. 3 - Undeploying/Packing up
-
 private ["_fobHQ","_returnMessage","_fobHQState"];
 
 _fobHQ = _this select 0;

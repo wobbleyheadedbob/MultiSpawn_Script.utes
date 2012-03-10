@@ -1,3 +1,4 @@
+// Determine what actions to take based on changes to PV_server_syncHQState
 // Author: WobbleyheadedBob aka CptNoPants
 
 private ["_mhqObject","_mhqState"];

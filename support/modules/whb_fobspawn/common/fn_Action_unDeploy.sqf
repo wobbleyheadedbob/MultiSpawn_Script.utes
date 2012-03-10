@@ -1,4 +1,4 @@
-// Script used by the Client to trigger a change in the HQ State
+// Calls fn_undeployHQ method on the client machine to pack up a deployed FOB
 // Author: WobbleyheadedBob aka CptNoPants
 
 private ["_hqObject","_returnMessage"];

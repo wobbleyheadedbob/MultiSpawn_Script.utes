@@ -57,8 +57,7 @@ fn_playerSetSpawn = compile preprocessFileLineNumbers "support\modules\WHB_FOBSp
 fn_DeployHQ = compile preprocessFileLineNumbers "support\modules\WHB_FOBSpawn\common\fn_deployHQ.sqf";
 fn_undeployHQ = compile preprocessFileLineNumbers "support\modules\WHB_FOBSpawn\common\fn_undeployHQ.sqf";
 
-// Functions to determine the HQ Structure/Vehicle type based on the HQ Object supplied
-fn_getHQType = compile preprocessFileLineNumbers "support\modules\WHB_FOBSpawn\common\fn_getHQType.sqf";
+// Functions to determine the HQ Structure/Vehicle type based on the MHQ Object supplied
 fn_getMHQType = compile preprocessFileLineNumbers "support\modules\WHB_FOBSpawn\common\fn_getMHQType.sqf";
 
 //Function to add actions to the HQ objects
