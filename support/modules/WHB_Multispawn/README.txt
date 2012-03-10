@@ -21,3 +21,13 @@ Feel free to give your feedback on Dev-Heaven : https://dev-heaven.net/projects/
 	
 	You should have received a copy of the GNU General Public License
 	along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+Usage:
+WHB_Multispawn provides multiple spawn locations at a deployable MHQ. Players have to ‘sign in’
+to move their spawn point. The default HQ vehicles and buildings for Arma 2 and Operation 
+Arrowhead have been included but others can be added to the switch statement in:
+ ..\support\modules\WHB_FOBspawn\server\fn_getMHQType.sqf
+
+You can also make any object into a ‘Set Spawn Point’ by putting in the following in the Init line: 
+this addAction [("<t color=""#dddd00"">" + "Set Spawn" + "</t>"), "support\modules\WHB_Multispawn\common\fn_Action_SignInFOB.sqf"];
+this setVariable ["MHQState",1,true];

@@ -2,73 +2,17 @@
 // State variable is also initialised as they are added to the list.
 // Static HQ buildings will need the relevant actions manually added in the editor
 // Author: WobbleyheadedBob aka CptNoPants
-private ["_vehicles"];
+private ["_vehicles","_isMHQ"];
 _vehicles = _this select 0;
 PV_hqArray = [];
 
 {
-	switch (typeOf _x) do
+	_isMHQ = [_x] call fn_getMHQType;
+	
+	if (_isMHQ != "non_mhq_vehicle") then 
 	{
-		//BLUFOR
-		case "LAV25_HQ":
-		{
-			_x setVariable ["MHQState", 0, true];
-			PV_hqArray set [count PV_hqArray, _x];
-		};
-		case "BMP2_HQ_CDF":
-		{
-			_x setVariable ["MHQState", 0, true];
-			PV_hqArray set [count PV_hqArray, _x];
-		};
-		case "M1130_CV_EP1":
-		{
-			_x setVariable ["MHQState", 0, true];
-			PV_hqArray set [count PV_hqArray, _x];
-		};
-		case "cwr2_M113_HQ":
-		{
-			_x setVariable ["MHQState", 0, true];
-			PV_hqArray set [count PV_hqArray, _x];
-		};
-		
-		//OPFOR
-		case "BTR90_HQ":
-		{
-			_x setVariable ["MHQState", 0, true];
-			PV_hqArray set [count PV_hqArray, _x];
-		};
-		case "BMP2_HQ_INS":
-		{
-			_x setVariable ["MHQState", 0, true];
-			PV_hqArray set [count PV_hqArray, _x];
-		};
-		case "BMP2_HQ_TK_EP1":
-		{
-			_x setVariable ["MHQState", 0, true];
-			PV_hqArray set [count PV_hqArray, _x];
-		};
-		
-		//Independent
-		case "BRDM2_HQ_Gue":
-		{
-			_x setVariable ["MHQState", 0, true];
-			PV_hqArray set [count PV_hqArray, _x];
-		};
-		case "BRDM2_HQ_TK_GUE_EP1":
-		{
-			_x setVariable ["MHQState", 0, true];
-			PV_hqArray set [count PV_hqArray, _x];
-		};
-		case "BRDM2_HQ_TK_GUE": //Is this valid?
-		{
-			_x setVariable ["MHQState", 0, true];
-			PV_hqArray set [count PV_hqArray, _x];
-		};
-
-		Default
-		{
-			//Do nothing for all other vehicles
-		};
+		_x setVariable ["MHQState", 0, true];
+		PV_hqArray set [count PV_hqArray, _x];
 	};
 } forEach _vehicles;
 

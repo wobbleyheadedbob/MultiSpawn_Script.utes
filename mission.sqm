@@ -14,7 +14,8 @@ class Mission
 		"CAWheeled",
 		"cawheeled_e_brdm2",
 		"CAWheeled2_BTR90",
-		"CAWheeled_E_stryker"
+		"CAWheeled_E_stryker",
+		"cadata"
 	};
 	addOnsAuto[]=
 	{
@@ -29,6 +30,7 @@ class Mission
 		"camisc_e_wf",
 		"warfarebuildings",
 		"CAWheeled_E_stryker",
+		"cadata",
 		"utes"
 	};
 	randomSeed=15318974;
@@ -88,7 +90,7 @@ class Mission
 	};
 	class Vehicles
 	{
-		items=23;
+		items=24;
 		class Item0
 		{
 			position[]={3317.1011,19,3621.7056};
@@ -289,6 +291,15 @@ class Mission
 			side="EMPTY";
 			vehicle="M1130_CV_EP1";
 			skill=0.60000002;
+		};
+		class Item23
+		{
+			position[]={3304.7886,19,3614.325};
+			id=25;
+			side="EMPTY";
+			vehicle="Tractor";
+			skill=0.60000002;
+			init="this addAction [(""<t color=""""#dddd00"""">"" + ""Set Spawn"" + ""</t>""), ""support\modules\WHB_Multispawn\common\fn_Action_SignInFOB.sqf""];  this setVariable [""MHQState"",1,true];";
 		};
 	};
 	class Markers

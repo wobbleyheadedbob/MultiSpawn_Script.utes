@@ -55,7 +55,7 @@ switch (typeOf _mhq) do
 	Default 
 	{
 		//Do nothing for all other vehicles
-		_MHQtype = "Old_bike_TK_INS_EP1";
+		_MHQtype = "non_mhq_vehicle";
 	};
 };
 
