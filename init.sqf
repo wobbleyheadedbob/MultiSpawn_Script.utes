@@ -4,8 +4,8 @@
 enableSaving [false, false];
 
 // FOB HQ MultiSpawn
-#ifdef WHB_FOBSpawn
-	[] call compile preprocessFileLineNumbers "support\modules\WHB_FOBSpawn\main.sqf";
+#ifdef WHB_MULTISPAWN
+	[] call compile preprocessFileLineNumbers "support\modules\WHB_Multispawn\main.sqf";
 #endif
 
 // Mission Parameters (MSO already does this for you)

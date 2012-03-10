@@ -1,10 +1,16 @@
 //needs to be done Server-side just in case the client machine disconnects or crashes during the parameter defined delay.
 // Author: WobbleyheadedBob aka CptNoPants
+
 private ["_fobHQ","_mhq","_mhqType","_locationHQ","_vectorHQ"];
 _fobHQ = _this select 0;
 _locationHQ = position _fobHQ;
 _vectorHQ = vectorUp _fobHQ;
 _mhqType = [_fobHQ] call fn_getMHQType;
+
+#ifdef RMM_JIPMARKERS
+private ["_mkr"];
+_mkr = _fobHQ getVariable "MHQ_jipmarker";
+#endif
 
 //Wait a while...
 sleep undeployment_Time;
@@ -12,6 +18,12 @@ sleep undeployment_Time;
 //Delete the FOBHQ and Remove from the list of active HQs
 PV_hqArray = PV_hqArray - [_fobHQ];
 deleteVehicle _fobHQ;
+
+#ifdef RMM_JIPMARKERS
+	RMM_jipmarkers = RMM_jipmarkers - [_mkr];
+	deleteMarker _mkr;
+	publicvariable "RMM_jipmarkers";
+#endif
 
 //Create new MHQ
 _mhq = createVehicle [_mhqType, [0,0,0], [], 0, "NONE"];

@@ -1,5 +1,5 @@
 #include <support\modules\modules.hpp>
-//#include <support\modules\WHB_FOBSpawn\dialogs\dialog_WHB_FOBSpawnMain.hpp>
+//#include <support\modules\WHB_Multispawn\dialogs\dialog_WHB_MultispawnMain.hpp>
 
 //http://community.bistudio.com/wiki/description.ext#Header_Class
 class header {
@@ -22,7 +22,7 @@ aiKills = 0;
 briefing = 1;
 
 class Params {
-#ifdef WHB_FOBSpawn
-	#include <support\modules\WHB_FOBSpawn\params.hpp>
+#ifdef WHB_MULTISPAWN
+	#include <support\modules\WHB_Multispawn\params.hpp>
 #endif
 };

@@ -1,4 +1,4 @@
 // - Tested
 
 // WIP
-#define WHB_FOBSpawn
+#define WHB_MULTISPAWN

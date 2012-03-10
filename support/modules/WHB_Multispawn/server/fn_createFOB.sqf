@@ -1,5 +1,6 @@
 //needs to be done Server-side just in case the client machine disconnects or crashes during the parameter defined delay.
 // Author: WobbleyheadedBob aka CptNoPants
+
 private ["_mhq","_locationHQ","_camo","_fobHQtype","_fobHQ","_vectorHQ"];
 _mhq = _this select 0;
 _locationHQ = position _mhq;
@@ -34,3 +35,20 @@ if !isDedicated then
 {
 	[1, _fobHQ] call fn_client_syncHQState;
 };
+
+#ifdef RMM_JIPMARKERS
+	private ["_string","_name","_mkr"];
+	_string = "Forward Base";
+	_name = "mkr" + str(random time + 1);
+	_mkr = createMarkerLocal [_name, _locationHQ];
+	_mkr setmarkertypeLocal (RMM_jipmarkers_types select (2)); //mil_flag
+	_mkr setmarkertextLocal _string;
+	_mkr setmarkercolorLocal (RMM_jipmarkers_colors select (1)); //ColorBlack
+	_fobHQ setVariable ["MHQ_jipmarker", _mkr, true];
+	RMM_jipmarkers set [count RMM_jipmarkers, [_name, _locationHQ, getMarkerType _mkr, _string, playerSide, getMarkerColor _mkr]];
+	publicvariable "RMM_jipmarkers";
+#endif
+
+
+
+
