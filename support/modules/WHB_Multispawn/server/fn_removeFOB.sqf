@@ -37,7 +37,7 @@ PV_hqArray set [count PV_hqArray, _mhq];
 publicvariable "PV_hqArray";
 
 //Broadcast the returnMessage and fn_addAction_HQ to all other clients
-PV_client_syncHQState = [1, ""];
+PV_client_syncHQState = [0, _mhq];
 publicVariable "PV_client_syncHQState";
 
 if !isDedicated then 

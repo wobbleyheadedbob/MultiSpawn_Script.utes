@@ -37,7 +37,7 @@ if (str myRespawnPoint == "[0,0,0]") then {
 	myRespawnPoint = (markerPos format["respawn_%1", faction player]);
 };
 
-
+/*
 if (str myRespawnPoint == "[0,0,0]") then {
 	myRespawnPoint = position player;
-};
+};*/

@@ -48,7 +48,7 @@ class Mission
 	};
 	class Groups
 	{
-		items=2;
+		items=4;
 		class Item0
 		{
 			side="WEST";
@@ -84,6 +84,45 @@ class Mission
 					leader=1;
 					skill=0.60000002;
 					text="s2";
+				};
+			};
+		};
+		class Item2
+		{
+			side="EAST";
+			class Vehicles
+			{
+				items=1;
+				class Item0
+				{
+					position[]={3632.2903,19,3610.4072};
+					id=26;
+					side="EAST";
+					vehicle="MVD_Soldier";
+					player="PLAY CDG";
+					leader=1;
+					rank="LIEUTENANT";
+					skill=0.60000002;
+					text="s3";
+				};
+			};
+		};
+		class Item3
+		{
+			side="EAST";
+			class Vehicles
+			{
+				items=1;
+				class Item0
+				{
+					position[]={3656.5535,18.942457,3574.2461};
+					id=27;
+					side="EAST";
+					vehicle="MVD_Soldier_GL";
+					player="PLAY CDG";
+					leader=1;
+					rank="CORPORAL";
+					skill=0.60000002;
 				};
 			};
 		};

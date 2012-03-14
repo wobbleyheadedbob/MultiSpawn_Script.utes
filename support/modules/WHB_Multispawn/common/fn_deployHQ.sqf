@@ -60,7 +60,12 @@ switch (_mhqState) do
 			_mhq setVariable ["MHQState", 2, true];
 			_mhq setFuel 0;
 			_vectorHQ = vectorUp _mhq;
-			_camotype = "Land_CamoNetB_NATO";
+			
+			if (side player == WEST) then {
+				_camotype = "Land_CamoNetB_NATO";
+			} else {
+				_camotype = "Land_CamoNetB_EAST";
+			};
 			
 			//Create the Cammo Net
 			_camo = createVehicle [_camotype, [0,0,0], [], 0, "NONE"];
@@ -73,7 +78,7 @@ switch (_mhqState) do
 			_returnMessage = ["Setting up FOB HQ now..."];
 			
 			//Use createFOB locally if you're a hosting player else, use PV service bus
-			if isServer then {
+			if (isServer) then {
 				[_mhq] spawn 
 				{
 					private ["_mhq"];
@@ -81,7 +86,7 @@ switch (_mhqState) do
 					[_mhq] call fn_createFOB;
 				};
 			} else {
-				PV_server_syncHQState = [1, _mhq];
+				PV_server_syncHQState = [2, _mhq];
 				publicvariable "PV_server_syncHQState";
 			};
 		};

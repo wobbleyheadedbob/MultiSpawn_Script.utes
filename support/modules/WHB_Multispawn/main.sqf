@@ -2,6 +2,7 @@
 // Author: WobbleyheadedBob aka CptNoPants
 
 // All Machines
+//--------------------------------------------------------------------------------------------------------------------------------
 // Functions to Deploy/Pack/Sign-in HQ's
 fn_playerSetSpawn = compile preprocessFileLineNumbers "support\modules\WHB_Multispawn\common\fn_playerSetSpawnpoint.sqf";
 fn_DeployHQ = compile preprocessFileLineNumbers "support\modules\WHB_Multispawn\common\fn_deployHQ.sqf";
@@ -20,14 +21,11 @@ fn_addAction_HQ = compile preprocessFileLineNumbers "support\modules\WHB_Multisp
 fn_playerRespawn = compile preprocessFileLineNumbers "support\modules\WHB_Multispawn\common\fn_playerRespawn.sqf";
 
 // Server
+//--------------------------------------------------------------------------------------------------------------------------------
 if isServer then {
 	private ["_initMHQs","_hqObject"];
-	if (isNil "PV_server_syncHQState") then {
-		// set the nil variable with a default value for server and both JIP & 'join at mission start' 
-		PV_server_syncHQState = [99, ""]; 
-	};
-	publicvariable "PV_server_syncHQState";
-	
+	PV_server_syncHQState = [99, ""]; 
+
 	// Builds the initial array of all MHQ Vehicles placed in the editor
 	_initMHQs = [vehicles] call compile preprocessFile "support\modules\WHB_Multispawn\server\init_server_MHQs.sqf";
 	
@@ -42,6 +40,7 @@ if isServer then {
 	"PV_server_syncHQState" addPublicVariableEventHandler {(_this select 1) call fn_server_syncHQState;};
 
 // Non-server clients
+//--------------------------------------------------------------------------------------------------------------------------------
 } else {
 	waituntil{!isNil "PV_hqArray"};
 
@@ -56,6 +55,7 @@ if isServer then {
 };
 
 //Clients and Hosting Players
+//--------------------------------------------------------------------------------------------------------------------------------
 if !isDedicated then {
 	waituntil{!isNil "PV_hqArray"};
 	

@@ -1,7 +1,4 @@
-// When triggered, updates myRespawnPoint to the object's location.
-// Still a work in Progress:
-// This will later be modified so that it is actually tied to the object and uses NOMAD to store the player spawn.
-// another eventHandler will be setup to monitor the state of the HQ Building.
+// If the HQ is in the correct state, the HQ Object is tied to the player as their respawn point.
 // Author: WobbleyheadedBob aka CptNoPants
 private ["_fobHQ","_fobState","_returnMessage"];
 _fobHQ = _this select 0;
@@ -25,7 +22,7 @@ switch (_fobState) do
 	
 	case 1: // State No. 1 - Deployed
 	{
-		myRespawnPoint = position _fobHQ;
+		player setVariable ["playerRespawnPoint", _fobHQ, false];
 		_returnMessage = ["You will spawn here if KIA"];
 	};
 	

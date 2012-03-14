@@ -24,13 +24,23 @@ switch (_mhqState) do
 	case 2: // State No. 2 - Deploying
 	{
 		PV_server_syncHQState = [99, ""];
-		[_mhqObject] call fn_createFOB;
+		[_mhqObject] spawn 
+				{
+					private ["_mhq"];
+					_mhq = _this select 0;
+					[_mhq] call fn_createFOB;
+				};
 	};
 	//-------------------------------------------------------------------------------------------------
 	case 3: // State No. 3 - Undeploying/Packing up
 	{
 		PV_server_syncHQState = [99, ""];
-		[_mhqObject] call fn_removeFOB;
+		[_mhqObject] spawn
+			{
+				private ["_fobHQ"];
+				_fobHQ = _this select 0;
+				[_fobHQ] call fn_removeFOB;
+			};
 	};
 	//-------------------------------------------------------------------------------------------------
 	Default 

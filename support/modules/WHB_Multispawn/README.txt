@@ -31,3 +31,6 @@ Arrowhead have been included but others can be added to the switch statement in:
 You can also make any object into a ‘Set Spawn Point’ by putting in the following in the Init line: 
 this addAction [("<t color=""#dddd00"">" + "Set Spawn" + "</t>"), "support\modules\WHB_Multispawn\common\fn_Action_SignInFOB.sqf"];
 this setVariable ["MHQState",1,true];
+
+To ensure the MHQ vehicle respawns at base, add the follwoing to the init line in the map editor:
+0 = [this, 10, 9999999, 0, FALSE, FALSE, "[this] execVM 'support\scripts\respawnMHQ.sqf'"]  execVM "support\scripts\vehicle.sqf"

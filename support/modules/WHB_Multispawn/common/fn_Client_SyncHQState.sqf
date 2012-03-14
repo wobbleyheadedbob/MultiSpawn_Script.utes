@@ -11,7 +11,7 @@ switch (_mhqState) do
 	{
 		PV_client_syncHQState = [99, ""];
 		[_mhqObject] call fn_addAction_HQ;
-		player sideChat format ["FOB HQ has now been packed up..."];
+		player sideChat format ["FOB has been packed up."];
 	};
 	//-------------------------------------------------------------------------------------------------
 	case 1: // State No. 1 - Deployed
@@ -24,13 +24,13 @@ switch (_mhqState) do
 	case 2: // State No. 2 - Deploying
 	{
 		PV_client_syncHQState = [99, ""];
-		player sideChat format ["Someone is deploying up an FOB..."];
+		player sideChat format ["State 2 has started on PV_client_syncHQState"];
 	};
 	//-------------------------------------------------------------------------------------------------
 	case 3: // State No. 3 - Undeploying/Packing up
 	{
 		PV_client_syncHQState = [99, ""];
-		player sideChat format ["Someone is packing up an FOB..."];
+		player sideChat format ["State 3 has started on PV_client_syncHQState"];
 	};
 	//-------------------------------------------------------------------------------------------------
 	Default 
