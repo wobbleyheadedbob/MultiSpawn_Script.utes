@@ -36,7 +36,8 @@ if !isDedicated then
 	[1, _fobHQ] call fn_client_syncHQState;
 };
 
-#ifdef RMM_JIPMARKERS
+if (jipMarkers_enabled == 1) then
+{
 	private ["_string","_name","_mkr"];
 	_string = "Forward Base";
 	_name = "mkr" + str(random time + 1);
@@ -47,7 +48,7 @@ if !isDedicated then
 	_fobHQ setVariable ["MHQ_jipmarker", _mkr, true];
 	RMM_jipmarkers set [count RMM_jipmarkers, [_name, _locationHQ, getMarkerType _mkr, _string, playerSide, getMarkerColor _mkr]];
 	publicvariable "RMM_jipmarkers";
-#endif
+};
 
 
 

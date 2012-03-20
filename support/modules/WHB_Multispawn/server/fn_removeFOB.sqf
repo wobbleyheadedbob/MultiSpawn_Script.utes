@@ -19,11 +19,12 @@ sleep undeployment_Time;
 PV_hqArray = PV_hqArray - [_fobHQ];
 deleteVehicle _fobHQ;
 
-#ifdef RMM_JIPMARKERS
+if (jipMarkers_enabled == 1) then
+{
 	RMM_jipmarkers = RMM_jipmarkers - [_mkr];
 	deleteMarker _mkr;
 	publicvariable "RMM_jipmarkers";
-#endif
+};
 
 //Create new MHQ
 _mhq = createVehicle [_mhqType, [0,0,0], [], 0, "NONE"];
