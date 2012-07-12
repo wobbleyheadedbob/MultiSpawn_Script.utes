@@ -1,11 +1,37 @@
-//needs to be done Server-side just in case the client machine disconnects or crashes during the parameter defined delay.
-// Author: WobbleyheadedBob aka CptNoPants
+/* ----------------------------------------------------------------------------
+Function: MSO_fnc_createFOB
 
-private ["_fobHQ","_mhq","_mhqType","_locationHQ","_vectorHQ"];
+Description:
+Serverside call to turn a mobile vehicle into a static FOB
+Should to be done Server-side just in case the client machine disconnects or crashes during the parameter defined delay.
+
+
+Parameters:
+- A vehicle object to be turned into an FOB [Object]
+
+Returns:
+Nothing
+
+Examples:
+(begin example)
+// reassign objects to nearest cluster
+[_mhqVehicle]  call MSO_fnc_createFOB;
+(end)
+
+See Also:
+- <MSO_fnc_createFOB>
+
+Author:
+WobbleyheadedBob aka CptNoPants
+---------------------------------------------------------------------------- */
+
+
+private ["_fobHQ","_mhq","_mhqType","_locationHQ","_vectorHQ","_directionHQ"];
 _fobHQ = _this select 0;
 _locationHQ = position _fobHQ;
 _vectorHQ = vectorUp _fobHQ;
-_mhqType = [_fobHQ] call fn_getMHQType;
+_directionHQ = direction _fobHQ;
+_mhqType = [_fobHQ] call MSO_fnc_getMHQType;
 
 #ifdef RMM_JIPMARKERS
 private ["_mkr"];
@@ -28,7 +54,7 @@ if (jipMarkers_enabled == 1) then
 
 //Create new MHQ
 _mhq = createVehicle [_mhqType, [0,0,0], [], 0, "NONE"];
-_mhq setDir direction _fobHQ;
+_mhq setDir _directionHQ;
 _mhq setVectorUp _vectorHQ;
 _mhq setPos _locationHQ;
 _mhq setVariable ["MHQState", 0, true];

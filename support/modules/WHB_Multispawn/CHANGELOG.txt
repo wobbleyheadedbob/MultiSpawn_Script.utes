@@ -4,6 +4,7 @@ v2.0
 - Change deploy/undeploy API calls to return array of responses
 - Removed dialog testing files
 - All actions now visible permanatly but validation allows only appropriate calls
+- Added Option to auto-create JIP Marker on deploy
 
 v1.1
 - Added Support for all default Arma2/OA/BAF/PMC Factions
