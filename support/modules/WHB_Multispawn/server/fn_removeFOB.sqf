@@ -2,9 +2,8 @@
 Function: MSO_fnc_createFOB
 
 Description:
-Serverside call to turn a mobile vehicle into a static FOB
+Serverside call to create a mobile HQ.
 Should to be done Server-side just in case the client machine disconnects or crashes during the parameter defined delay.
-
 
 Parameters:
 - A vehicle object to be turned into an FOB [Object]
@@ -33,10 +32,6 @@ _vectorHQ = vectorUp _fobHQ;
 _directionHQ = direction _fobHQ;
 _mhqType = [_fobHQ] call MSO_fnc_getMHQType;
 
-#ifdef RMM_JIPMARKERS
-private ["_mkr"];
-_mkr = _fobHQ getVariable "MHQ_jipmarker";
-#endif
 
 //Wait a while...
 sleep undeployment_Time;
@@ -63,11 +58,11 @@ _mhq setVariable ["MHQState", 0, true];
 PV_hqArray set [count PV_hqArray, _mhq];
 publicvariable "PV_hqArray";
 
-//Broadcast the returnMessage and fn_addAction_HQ to all other clients
+//Broadcast the returnMessage and MSO_fnc_addAction_HQ to all clients
 PV_client_syncHQState = [0, _mhq];
 publicVariable "PV_client_syncHQState";
 
 if !isDedicated then 
 {
-	[0, _mhq] call fn_client_syncHQState;
+	[0, _mhq] call MSO_fnc_client_syncHQState;
 };

@@ -1,5 +1,5 @@
 /* ----------------------------------------------------------------------------
-Function: MSO_fnc_DeployHQ
+Function: MSO_fnc_deployHQ
 
 Description:
 Deploys the vehicle into a static structure that allows players to choose to spawn there when they die.
@@ -98,11 +98,11 @@ switch (_mhqState) do
 				{
 					private ["_mhq"];
 					_mhq = _this select 0;
-					[_mhq] call fn_createFOB;
+					[_mhq] call MSO_fnc_createFOB;
 				};
 			} else {
 				PV_server_syncHQState = [2, _mhq];
-				publicvariable "PV_server_syncHQState";
+				publicVariableServer "PV_server_syncHQState";
 			};
 		};
 	};

@@ -1,5 +1,31 @@
-// Determine what actions to take based on changes to PV_client_syncHQState
-// Author: WobbleyheadedBob aka CptNoPants
+/* ----------------------------------------------------------------------------
+Function: MSO_fnc_client_syncHQState
+
+Description:
+Displays a message when HQ is deployed/packed up and adds the 'MHQ Menu' to the new object.
+
+Parameters:
+- An MHQ object to be turned into an HQ [Object]
+
+Returns:
+- Nothing
+
+Examples:
+(begin example)
+[_mhqState, _mhqObject]  call MSO_fnc_client_syncHQState;
+(end)
+
+See Also:
+- <MSO_fnc_server_syncHQState>
+
+Author:
+WobbleyheadedBob aka CptNoPants
+---------------------------------------------------------------------------- */
+
+// State No. 0 - Mobile/Undeployed
+// State No. 1 - Deployed
+// State No. 2 - Deploying
+// State No. 3 - Undeploying/Packing up
 
 private ["_mhqState","_mhqObject"];
 _mhqState = _this select 0;
@@ -10,14 +36,14 @@ switch (_mhqState) do
 	case 0: // State No. 0 - Mobile/Undeployed
 	{
 		PV_client_syncHQState = [99, ""];
-		[_mhqObject] call fn_addAction_HQ;
+		[_mhqObject] call MSO_fnc_addAction_HQ;
 		player sideChat format ["FOB has been packed up."];
 	};
 	//-------------------------------------------------------------------------------------------------
 	case 1: // State No. 1 - Deployed
 	{
 		PV_client_syncHQState = [99, ""];
-		[_mhqObject] call fn_addAction_HQ;
+		[_mhqObject] call MSO_fnc_addAction_HQ;
 		player sideChat format ["FOB has been deployed."];
 	};
 	//-------------------------------------------------------------------------------------------------

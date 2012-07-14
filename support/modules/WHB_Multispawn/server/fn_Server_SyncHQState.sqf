@@ -2,7 +2,7 @@
 Function: MSO_fnc_server_syncHQState
 
 Description:
-Determines what actions to take based on changes to PV_server_syncHQState
+Creates/Removes FOB on the server after the defined delay.
 
 Parameters:
 - A state variable [Num]
@@ -13,12 +13,13 @@ Nothing
 
 Examples:
 (begin example)
-[_mhqState, _mhqObject]  call MSO_fnc_server_syncHQState;
+[_hqState, _hqObject]  call MSO_fnc_server_syncHQState;
 (end)
 
 See Also:
 - <MSO_fnc_createFOB>
 - <MSO_fnc_removeFOB>
+- <MSO_fnc_client_syncHQState>
 
 Author:
 WobbleyheadedBob aka CptNoPants
@@ -51,7 +52,7 @@ switch (_mhqState) do
 				{
 					private ["_mhq"];
 					_mhq = _this select 0;
-					[_mhq] call fn_createFOB;
+					[_mhq] call MSO_fnc_createFOB;
 				};
 	};
 	//-------------------------------------------------------------------------------------------------
@@ -62,7 +63,7 @@ switch (_mhqState) do
 			{
 				private ["_fobHQ"];
 				_fobHQ = _this select 0;
-				[_fobHQ] call fn_removeFOB;
+				[_fobHQ] call MSO_fnc_removeFOB;
 			};
 	};
 	//-------------------------------------------------------------------------------------------------

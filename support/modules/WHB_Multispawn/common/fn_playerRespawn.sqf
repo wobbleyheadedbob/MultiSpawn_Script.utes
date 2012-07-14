@@ -22,9 +22,6 @@ Author:
 WobbleyheadedBob aka CptNoPants
 ---------------------------------------------------------------------------- */
 
-
-// When called it sets the player's postion to 'myRespawnPoint' (simples!)
-// Author: WobbleyheadedBob aka CptNoPants
 private ["_mySoldier","_respawnObject"];
 _mySoldier = _this select 0;
 _respawnObject = _mySoldier getVariable "playerRespawnPoint";

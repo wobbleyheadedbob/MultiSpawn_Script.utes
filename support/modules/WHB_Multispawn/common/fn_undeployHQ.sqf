@@ -59,11 +59,11 @@ switch (_fobHQState) do
 			{
 				private ["_fobHQ"];
 				_fobHQ = _this select 0;
-				[_fobHQ] call fn_removeFOB;
+				[_fobHQ] call MSO_fnc_removeFOB;
 			};
 		} else {
 			PV_server_syncHQState = [3, _fobHQ];
-			publicvariable "PV_server_syncHQState";
+			publicVariableServer "PV_server_syncHQState";
 		};
 	};
 	//-------------------------------------------------------------------------------------------------

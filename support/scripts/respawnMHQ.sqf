@@ -9,5 +9,5 @@ PV_hqArray set [count PV_hqArray, _mhq];
 publicvariable "PV_hqArray";
 
 if !isDedicated then {
-	[_mhq] call fn_addAction_HQ;
+	[_mhq] call MSO_fnc_addAction_HQ;
 };
