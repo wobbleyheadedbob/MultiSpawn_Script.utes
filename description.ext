@@ -1,6 +1,6 @@
 #include <support\modules\modules.hpp>
 #include <support\modules\WHB_Multispawn\dialog\constants.hpp>
-#include <support\modules\WHB_Multispawn\dialog\base_classes.hpp>
+//#include <support\modules\WHB_Multispawn\dialog\base_classes.hpp>
 #include <support\modules\WHB_Multispawn\dialog.hpp>
 
 //http://community.bistudio.com/wiki/description.ext#Header_Class
