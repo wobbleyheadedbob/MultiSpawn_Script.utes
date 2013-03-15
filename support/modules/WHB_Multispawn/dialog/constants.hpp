@@ -86,7 +86,17 @@
 
 //-----------------------------------------------------------------------------
 // UI Classes
-class MSO_RscText {
+
+//MSO_dlg_Heading
+//MSO_dlg_MainDialog
+//MSO_dlg_Label
+//MSO_dlg_Textbox (input)
+//MSO_dlg_Button
+//MSO_dlg_Slider
+//MSO_dlg_Listbox
+//MSO_dlg_Combo
+
+class MSO_dlg_Heading {
 	idc = -1;
 	type = CT_STATIC;
 	style = ST_LEFT;
@@ -101,7 +111,7 @@ class MSO_RscText {
 	text = "";
 };
 
-class MSO_BackGround : MSO_RscText {
+class MSO_dlg_MainDialog : MSO_dlg_Heading {
 	idc = -1;
 	type = CT_STATIC;
 	style = ST_PICTURE;
@@ -116,7 +126,38 @@ class MSO_BackGround : MSO_RscText {
 	sizeEx = 0.032;
 };
 
-class MSO_ButtonBase {
+class MSO_dlg_Label {
+	idc = -1;
+	type = CT_STATIC;
+	x = 0;
+	y = 0;
+	h = 0.037;
+	w = 0.3;
+	style = 256;
+	font = FontM;
+	text = "";
+	SizeEx = 0.03921;
+	colorText[] = {0.543, 0.5742, 0.4102, 1.0};
+	colorBackground[] = {0, 0, 0, 0};
+};
+
+class MSO_dlg_Textbox {
+	idc = -1;
+	type = 2; 
+	style = 16;
+	x = 0;
+	w = 0;
+	htmlControl = true;
+	sizeEx = 0.028;	
+	font = "BitStream";
+	colorBackground[] = {0, 0, 0, 0};
+	colorText[] = {0.543, 0.5742, 0.4102, 1.0};
+	colorSelection[] = {0,0,0,1};
+	autocomplete = false;
+	text = "";
+};
+
+class MSO_dlg_Button {
 	idc = -1;
 	type = CT_SHORTCUT_BUTTON;
 	style = ST_SINGLE;
@@ -162,7 +203,7 @@ class MSO_ButtonBase {
 	animTexturePressed = "\ca\ui\data\ui_button_down_ca.paa";
 	animTextureDefault = "\ca\ui\data\ui_button_default_ca.paa";
 	period = 0.4;
-	font = "Zeppelin32";
+	font = FontM;
 	soundEnter[] = {"\ca\ui\data\sound\mouse2", 0.09, 1};
 	soundPush[] = {"\ca\ui\data\sound\new1", 0.09, 1};
 	soundClick[] = {"\ca\ui\data\sound\mouse3", 0.07, 1};
@@ -178,6 +219,93 @@ class MSO_ButtonBase {
 		color = "#E5E5E5";
 		align = "left";
 		shadow = "true";
+	};
+};
+
+class MSO_dlg_Slider {
+	idc = -1;
+	type = CT_XSLIDER;
+	style = 0x400 + 0x10;
+	x = 0;
+	y = 0;
+	h = 0.029412;
+	w = 0.4;
+	color[] = {1, 1, 1, 0.4};
+	colorActive[] = {1, 1, 1, 1};
+	colorDisabled[] = {1, 1, 1, 0.2};
+	arrowEmpty = "\ca\ui\data\ui_arrow_left_ca.paa";
+	arrowFull = "\ca\ui\data\ui_arrow_left_active_ca.paa";
+	border = "\ca\ui\data\ui_border_frame_ca.paa";
+	thumb = "\ca\ui\data\ui_slider_bar_ca.paa";
+};
+
+class MSO_dlg_Listbox {
+	idc = -1;
+	type = CT_LISTBOX;
+	style = 0 + 0x10;
+	font = FontM;
+	sizeEx = 0.04221;
+	color[] = {1, 1, 1, 1};
+	colorText[] = {1, 1, 1, 0.75};
+	colorScrollbar[] = {0.95, 0.95, 0.95, 1};
+	colorSelect[] = {0.95, 0.95, 0.95, 1};
+	colorSelect2[] = {0.95, 0.95, 0.95, 1};
+	colorSelectBackground[] = {0.6, 0.8392, 0.4706, 1.0};
+	colorSelectBackground2[] = {0.6, 0.8392, 0.4706, 1.0};
+	columns[] = {0.1, 0.7, 0.1, 0.1};
+	period = 0;
+	colorBackground[] = {0, 0, 0, 1};
+	maxHistoryDelay = 1.0;
+	autoScrollSpeed = -1;
+	autoScrollDelay = 5;
+	autoScrollRewind = 0;
+	soundSelect[] = {"\ca\ui\data\sound\new1", 0.09, 1};
+	
+	class ScrollBar {
+		color[] = {1, 1, 1, 0.6};
+		colorActive[] = {1, 1, 1, 1};
+		colorDisabled[] = {1, 1, 1, 0.3};
+		thumb = "\ca\ui\data\igui_scrollbar_thumb_ca.paa";
+		arrowFull = "\ca\ui\data\igui_arrow_top_active_ca.paa";
+		arrowEmpty = "\ca\ui\data\igui_arrow_top_ca.paa";
+		border = "\ca\ui\data\igui_border_scroll_ca.paa";
+	};
+};
+
+class MSO_dlg_Combo {
+	idc = -1;
+	type = CT_COMBO;
+	style = ST_RIGHT;
+	x = 0;
+	y = 0;
+	w = 0.3;
+	h = 0.035;
+	colorSelect[] = {0.023529, 0, 0.0313725, 1};
+	colorText[] = {0.023529, 0, 0.0313725, 1};
+	colorBackground[] = {0.95, 0.95, 0.95, 1};
+	colorSelectBackground[] = {0.543, 0.5742, 0.4102, 1.0};
+	colorScrollbar[] = {0.023529, 0, 0.0313725, 1};
+	arrowEmpty = "\ca\ui\data\ui_arrow_combo_ca.paa";
+	arrowFull = "\ca\ui\data\ui_arrow_combo_active_ca.paa";
+	wholeHeight = 0.45;
+	color[] = {0, 0, 0, 0.6};
+	colorActive[] = {0, 0, 0, 1};
+	colorDisabled[] = {0, 0, 0, 0.3};
+	font = FontM;
+	sizeEx = 0.031;
+	soundSelect[] = {"\ca\ui\data\sound\new1", 0.09, 1};
+	soundExpand[] = {"\ca\ui\data\sound\new1", 0.09, 1};
+	soundCollapse[] = {"\ca\ui\data\sound\new1", 0.09, 1};
+	maxHistoryDelay = 1.0;
+	
+	class ScrollBar {
+		color[] = {1, 1, 1, 0.6};
+		colorActive[] = {1, 1, 1, 1};
+		colorDisabled[] = {1, 1, 1, 0.3};
+		thumb = "\ca\ui\data\ui_scrollbar_thumb_ca.paa";
+		arrowFull = "\ca\ui\data\ui_arrow_top_active_ca.paa";
+		arrowEmpty = "\ca\ui\data\ui_arrow_top_ca.paa";
+		border = "\ca\ui\data\ui_border_scroll_ca.paa";
 	};
 };
 //-----------------------------------------------------------------------------

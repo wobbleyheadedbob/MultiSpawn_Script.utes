@@ -36,7 +36,7 @@ class Mission
 	randomSeed=15318974;
 	class Intel
 	{
-		briefingName="FOB Spawn v2.0";
+		briefingName="WHB_MultiSpawn v2.0";
 		briefingDescription="by WobbleyHeadedBob";
 		startWeather=0.10000002;
 		forecastWeather=0.30000001;
